@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">View All Channels</div>
+                <div class="panel-heading">Videos Uploaded by You</div>
                 <ul class="nav nav-tabs">
                         <li role="presentation"><a href="{{URL::to('channels/index')}}">Manage Channels</a></li>
                         <li role="presentation"><a href="{{URL::to('channels/create')}}">Create a new Channel</a></li>
@@ -16,8 +16,8 @@
                 <div class="panel-body">
 
                     <ul>
-                        @foreach ($channels as $channel)
-                            <li><a href="#"> {{ $channel->name }} </a></li>
+                        @foreach ($videos as $video)
+                            <li><a href="/videos/index/{{$video->id}}"> {{ $video->title }} </a></li>
                         @endforeach
                     </ul>
                 </div>
