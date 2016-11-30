@@ -6,12 +6,8 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Create a new Channel</div>
-                    <ul class="nav nav-tabs">
-                        <li role="presentation"><a href="{{URL::to('channels/index')}}">Manage Channels</a></li>
-                        <li role="presentation"><a href="{{URL::to('channels/create')}}">Create a new Channel</a></li>
-                        <li role="presentation"><a href="{{URL::to('videos/upload')}}">Upload a new Video</a></li>
-                        <li role="presentation"><a href="{{URL::to('videos/index')}}">View my Videos</a></li>
-                    </ul>
+
+                @include('layouts.navbar')
 
                 <div class="panel-body">
                     <ul>

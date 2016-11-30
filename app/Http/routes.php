@@ -29,3 +29,17 @@ Route::get('/videos/upload','VideoController@create');
 Route::post('/videos/upload/save','VideoController@save');
 Route::get('/videos/index','VideoController@index');
 Route::get('/videos/index/{id}','VideoController@showVideo');
+
+Route::get('/videos/edit/{id}', function($id){
+    $video = App\Video::find($id);
+    return view('editvideo',compact('video'));
+});
+
+Route::patch('/videos/edit/update/{video}','VideoController@editVideo');
+
+Route::get('/videos/delete/{id}', function($id){
+    $video = App\Video::find($id);
+    return view('deletevideo',compact('video'));
+});
+
+Route::delete('/videos/delete/confirm/{video}','VideoController@deleteVideo');

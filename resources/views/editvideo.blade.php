@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -11,22 +12,21 @@
 
                 <div class="panel-body">
                     <ul>
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="{{ url('videos/upload/save') }}">
+                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="<?php echo('/videos/edit/update/'.$video->id) ?>">
                             {{ csrf_field() }}
+                            {{ method_field('PATCH') }}
 
-                            <div class="form-group">
-                                <label for="file" class="col-md-4 control-label">Select Video File to Upload</label>
-
-                                <div class="col-md-6">
-                                    <input id="file" type="file" class="form-control" name="file">
-                                </div>
+                            <div align="center">
+                                <video width="320" height="240">
+                                    <source src="{{$video->url}}">
+                                </video>
                             </div>
 
                             <div class="form-group">
                                 <label for="title" class="col-md-4 control-label">Title</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control" name="title">
+                                    <input id="title" type="text" class="form-control" name="title" value="{{$video->title}}">
                                 </div>
                             </div>
 
@@ -34,14 +34,14 @@
                                 <label for="description" class="col-md-4 control-label">Short Description</label>
 
                                 <div class="col-md-6">
-                                    <input id="description" type="text" class="form-control" name="description">
+                                    <input id="description" type="text" class="form-control" name="description" value="{{$video->description}}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Create
+                                        Update
                                     </button>
                                 </div>
                             </div>

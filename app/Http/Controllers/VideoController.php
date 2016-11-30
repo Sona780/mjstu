@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
@@ -24,7 +25,7 @@ class VideoController extends Controller
         return redirect('/videos/index');
     }
     public function saveFile($file){
-        $destinationPath= "/assets/videos";
+        $destinationPath = "/assets/videos";
         $extension = $file->getClientOriginalExtension();
         $filename = str_random(8).".{$extension}";
         $upload_success = $file->move(public_path().'/'.$destinationPath, $filename);
@@ -38,5 +39,14 @@ class VideoController extends Controller
     public function showVideo($id){
         $video = App\Video::find($id);
         return view('showvideo',compact('video'));
+    }
+    public function editVideo(Request $request, App\Video $video){
+        $video->update($request->all());
+        return redirect('/videos/index/'.$video->id);
+    }
+    public function deleteVideo(Request $request, App\Video $video){
+        Storage::delete(app_path($video->url));
+        $video->delete();
+        return redirect('/videos/index');
     }
 }

@@ -6,17 +6,43 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Videos Uploaded by You</div>
-                <ul class="nav nav-tabs">
-                        <li role="presentation"><a href="{{URL::to('channels/index')}}">Manage Channels</a></li>
-                        <li role="presentation"><a href="{{URL::to('channels/create')}}">Create a new Channel</a></li>
-                        <li role="presentation"><a href="{{URL::to('videos/upload')}}">Upload a new Video</a></li>
-                        <li role="presentation"><a href="{{URL::to('videos/index')}}">View my Videos</a></li>
-                    </ul>
+
+                @include('layouts.navbar')
 
                 <div align="center" class="panel-body">
+                    <div class="page-header"><h1>{{$video->title}}</h1></div>
                     <video width="320" height="240" controls autoplay>
                         <source src="{{$video->url}}">
                     </video>
+
+                    <br/>
+
+                    {{ $video->description }}
+
+                    <br/>
+
+                    @if($video->owner == Auth::id())
+
+                    <br/>
+
+                    <a href="/videos/edit/{{$video->id}}">
+                        <div align="center">
+                            <button type="submit" class="btn btn-primary">
+                                Update Details
+                            </button>
+                        </div>
+                    </a>
+                    <br/>
+                    <a href="/videos/delete/{{$video->id}}">
+                        <div align="center">
+                            <button type="submit" class="btn btn-primary">
+                                Delete Video
+                            </button>
+                        </div>
+                    </a>
+
+                    @endif
+
                 </div>
             </div>
         </div>

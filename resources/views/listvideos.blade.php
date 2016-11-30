@@ -6,20 +6,21 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Videos Uploaded by You</div>
-                <ul class="nav nav-tabs">
-                        <li role="presentation"><a href="{{URL::to('channels/index')}}">Manage Channels</a></li>
-                        <li role="presentation"><a href="{{URL::to('channels/create')}}">Create a new Channel</a></li>
-                        <li role="presentation"><a href="{{URL::to('videos/upload')}}">Upload a new Video</a></li>
-                        <li role="presentation"><a href="{{URL::to('videos/index')}}">View my Videos</a></li>
-                    </ul>
+
+                @include('layouts.navbar')
 
                 <div class="panel-body">
 
+                    @if(count($videos)>0)
                     <ul>
                         @foreach ($videos as $video)
                             <li><a href="/videos/index/{{$video->id}}"> {{ $video->title }} </a></li>
                         @endforeach
                     </ul>
+                    @else
+                        You Haven't Uploaded Any Video Yet.
+                    @endif
+
                 </div>
             </div>
         </div>
