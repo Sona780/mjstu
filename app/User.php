@@ -23,4 +23,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function channels(){
+        return $this->belongsToMany('App\Channels','subscriptions');
+    }
 }

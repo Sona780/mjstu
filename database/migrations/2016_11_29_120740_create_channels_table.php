@@ -17,7 +17,6 @@ class CreateChannelsTable extends Migration
             $table->string('name')->unique();
             $table->string('description');
             $table->integer('admin');
-            $table->string('url')->unique();
             $table->timestamps();
         });
     }

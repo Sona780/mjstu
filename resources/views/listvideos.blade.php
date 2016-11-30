@@ -18,7 +18,7 @@
                         @endforeach
                     </ul>
                     @else
-                        You Haven't Uploaded Any Video Yet. <a href="{{URL::to('videos/upload')}}">Click Here</a> to create a new channel.
+                        You Haven't Uploaded Any Video Yet. <a href="{{URL::to('videos/upload')}}">Click Here</a> to Upload a New Video.
                     @endif
 
                 </div>
