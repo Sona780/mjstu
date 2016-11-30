@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/channels/create', 'ChannelController@create');
 Route::post('/channels/create/save', 'ChannelController@save');
 Route::get('/channels/index', 'ChannelController@index');
+Route::get('/channels/browse', 'ChannelController@browse');
 
 //Video Routes
 Route::get('/videos/upload','VideoController@create');

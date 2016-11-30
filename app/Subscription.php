@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Channel extends Model
+class Subscription extends Model
 {
     protected $fillable = [
-        'name', 'description', 'admin',
+        'user_id', 'channel_id',
     ];
 }
