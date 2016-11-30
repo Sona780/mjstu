@@ -21,7 +21,6 @@ class ChannelController extends Controller
         $channel = new App\Channel();
         $channel->name = $request['name'];
         $channel->description = $request['description'];
-        $channel->url = str_replace(' ', '-', $request['name']);
         $channel->admin = Auth::id();
         $channel->save();
         return redirect('/channels/index');
