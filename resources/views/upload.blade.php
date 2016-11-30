@@ -39,6 +39,20 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="channel" class="col-md-4 control-label">Select One Of Your Channels</label>
+
+                                <div class="col-md-6">
+                                    <select id="channel" class="form-control" name="channel">
+                                        <option value="0" selected> Upload Outside of Channels </option>
+                                        {{ $channels = App\Channel::where('admin',Auth::id())->get() }}
+                                        @foreach ($channels as $channel)
+                                            <option value="{{ $channel->id }}"> {{ $channel->name }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Create

@@ -21,6 +21,7 @@ class VideoController extends Controller
         $video->description = $request['description'];
         $video->url = $this->saveFile($request->file('file'));
         $video->owner = Auth::id();
+        $video->channel = $request['channel'];
         $video->save();
         return redirect('/videos/index');
     }
