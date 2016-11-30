@@ -37,4 +37,12 @@ class ChannelController extends Controller
         $channel = App\Channel::find($id);
         return view('showchannel',compact('channel'));
     }
+    public function subscribeChannel(App\Channel $channel){
+        Auth::user()->channels()->attach($channel);
+        return back();
+    }
+    public function unsubscribeChannel(App\Channel $channel){
+        Auth::user()->channels()->detach($channel);
+        return back();
+    }
 }

@@ -13,6 +13,20 @@
 
                 <div class="panel-body">
 
+                    @if($channel->admin == Auth::id())
+                        Upload Video to Channel Part
+                    @elseif(Auth::user()->channels()->find($channel->id))
+                        <form method="POST" action="/channels/unsubscribe/{{ $channel->id }}">
+                            {{ csrf_field() }}
+                            <button class="btn" type="submit">Unsubscribe from this Channel</button>
+                        </form>
+                    @else
+                        <form method="POST" action="/channels/subscribe/{{ $channel->id }}">
+                            {{ csrf_field() }}
+                            <button class="btn btn-primary" type="submit">Subscribe to this Channel</button>
+                        </form>
+                    @endif
+
                     <h4>Videos in this Channel</h4>
 
                     @if(count($videos)>0)

@@ -25,6 +25,8 @@ Route::post('/channels/create/save', 'ChannelController@save');
 Route::get('/channels/index', 'ChannelController@index');
 Route::get('/channels/browse', 'ChannelController@browse');
 Route::get('/channels/browse/{channel}','ChannelController@showChannel');
+Route::post('/channels/subscribe/{channel}','ChannelController@subscribeChannel');
+Route::post('/channels/unsubscribe/{channel}','ChannelController@unsubscribeChannel');
 
 //Video Routes
 Route::get('/videos/upload','VideoController@create');
