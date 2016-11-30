@@ -14,7 +14,7 @@
                     @if(count($channels)>0)
                     <ul>
                         @foreach ($channels as $channel)
-                            <li><a href="#"> {{ $channel->name }} </a></li>
+                            <li><a href="/channels/browse/{{ $channel->id }}"> {{ $channel->name }} </a></li>
                         @endforeach
                     </ul>
                     @else

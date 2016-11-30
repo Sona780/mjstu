@@ -24,6 +24,7 @@ Route::get('/channels/create', 'ChannelController@create');
 Route::post('/channels/create/save', 'ChannelController@save');
 Route::get('/channels/index', 'ChannelController@index');
 Route::get('/channels/browse', 'ChannelController@browse');
+Route::get('/channels/browse/{channel}','ChannelController@showChannel');
 
 //Video Routes
 Route::get('/videos/upload','VideoController@create');

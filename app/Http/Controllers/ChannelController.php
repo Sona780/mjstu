@@ -33,4 +33,8 @@ class ChannelController extends Controller
         $channels = App\Channel::all();
         return View::make('browsechannels', array('channels'=>$channels));
     }
+    public function showChannel($id){
+        $channel = App\Channel::find($id);
+        return view('showchannel',compact('channel'));
+    }
 }

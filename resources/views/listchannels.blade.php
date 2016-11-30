@@ -14,11 +14,11 @@
                     @if(count($channels)>0)
                     <ul>
                         @foreach ($channels as $channel)
-                            <li><a href="#"> {{ $channel->name }} </a></li>
+                            <li><a href="/channels/browse/{{ $channel->id }}"> {{ $channel->name }} </a></li>
                         @endforeach
                     </ul>
                     @else
-                    <p>You haven't created any channels yet.</p>
+                    <p>You haven't created any channels yet. <a href="{{URL::to('channels/create')}}">Click Here</a> to create a new channel.</p>
                     @endif
                 </div>
             </div>
