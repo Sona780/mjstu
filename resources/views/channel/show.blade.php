@@ -14,14 +14,14 @@
                 <div class="panel-body">
 
                     @if($channel->admin == Auth::id())
-                        <a href="/videos/upload"><button class="btn btn-primary">Upload a Video to this Channel</button></a>
+                        <a href="{{URL::to('/')}}/videos/upload"><button class="btn btn-primary">Upload a Video to this Channel</button></a>
                     @elseif(Auth::user()->channels()->find($channel->id))
-                        <form method="POST" action="/channels/unsubscribe/{{ $channel->id }}">
+                        <form method="POST" action="{{URL::to('/')}}/channels/unsubscribe/{{ $channel->id }}">
                             {{ csrf_field() }}
                             <button class="btn" type="submit">Unsubscribe from this Channel</button>
                         </form>
                     @else
-                        <form method="POST" action="/channels/subscribe/{{ $channel->id }}">
+                        <form method="POST" action="{{URL::to('/')}}/channels/subscribe/{{ $channel->id }}">
                             {{ csrf_field() }}
                             <button class="btn btn-primary" type="submit">Subscribe to this Channel</button>
                         </form>
@@ -32,7 +32,7 @@
                     @if(count($videos)>0)
                     <ul>
                         @foreach ($videos as $video)
-                            <li><a href="/videos/index/{{$video->id}}"> {{ $video->title }} </a></li>
+                            <li><a href="{{URL::to('/')}}/videos/index/{{$video->id}}"> {{ $video->title }} </a></li>
                         @endforeach
                     </ul>
                     @else

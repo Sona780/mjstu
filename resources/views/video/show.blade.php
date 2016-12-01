@@ -12,7 +12,7 @@
                 <div align="center" class="panel-body">
                     <div class="page-header"><h1>{{$video->title}}</h1></div>
                     <video width="320" height="240" controls autoplay>
-                        <source src="{{$video->url}}">
+                        <source src="{{URL::to('/')}}/{{$video->url}}">
                     </video>
 
                     <br/>
@@ -25,7 +25,7 @@
 
                     <br/>
 
-                    <a href="/videos/edit/{{$video->id}}">
+                    <a href="{{URL::to('/')}}/videos/edit/{{$video->id}}">
                         <div align="center">
                             <button type="submit" class="btn btn-primary">
                                 Update Details
@@ -33,7 +33,7 @@
                         </div>
                     </a>
                     <br/>
-                    <a href="/videos/delete/{{$video->id}}">
+                    <a href="{{URL::to('/')}}/videos/delete/{{$video->id}}">
                         <div align="center">
                             <button type="submit" class="btn btn-primary">
                                 Delete Video

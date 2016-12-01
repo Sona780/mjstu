@@ -12,7 +12,7 @@
 
                 <div class="panel-body">
                     <ul>
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="<?php echo('/videos/edit/update/'.$video->id) ?>">
+                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="{{URL::to('/')}}/<?php echo('/videos/edit/update/'.$video->id) ?>">
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -27,7 +27,7 @@
 
                             <div align="center">
                                 <video width="320" height="240">
-                                    <source src="{{$video->url}}">
+                                    <source src="{{URL::to('/')}}/{{$video->url}}">
                                 </video>
                             </div>
 

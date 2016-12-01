@@ -12,14 +12,14 @@
 
                 <div class="panel-body">
                     <ul>
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="<?php echo('/videos/delete/confirm/'.$video->id) ?>">
+                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="{{URL::to('/')}}/<?php echo('/videos/delete/confirm/'.$video->id) ?>">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
                             <div align="center">
                                 <div class="page-header"><h1>{{$video->title}}</h1></div>
                                 <video width="320" height="240">
-                                    <source src="{{$video->url}}">
+                                    <source src="{{URL::to('/')}}/{{$video->url}}">
                                 </video>
                                 <br/>
                                 {{ $video->description }}
@@ -40,7 +40,7 @@
                             </div>
                         </form>
                         <div align="center">
-                            <a href="<?php echo '/videos/index/'.$video->id ?>">
+                            <a href="{{URL::to('/')}}/<?php echo '/videos/index/'.$video->id ?>">
                                 <button class="btn btn-primary">
                                     Cancel
                                 </button>

@@ -14,7 +14,7 @@
                     @if(count($videos)>0)
                     <ul>
                         @foreach ($videos as $video)
-                            <li><a href="/videos/index/{{$video->id}}"> {{ $video->title }} </a></li>
+                            <li><a href="{{URL::to('/')}}/videos/index/{{$video->id}}"> {{ $video->title }} </a></li>
                         @endforeach
                     </ul>
                     @else
