@@ -36,12 +36,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/videos/index/{id}','VideoController@showVideo');
     Route::get('/videos/edit/{id}', function($id){
         $video = App\Video::find($id);
-        return view('editvideo',compact('video'));
+        return view('video.edit',compact('video'));
     });
     Route::patch('/videos/edit/update/{video}','VideoController@editVideo');
     Route::get('/videos/delete/{id}', function($id){
         $video = App\Video::find($id);
-        return view('deletevideo',compact('video'));
+        return view('video.delete',compact('video'));
     });
     Route::delete('/videos/delete/confirm/{video}','VideoController@deleteVideo');
 });

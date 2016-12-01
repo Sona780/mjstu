@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class VideoController extends Controller
 {
     public function create(){
-        return view('upload');
+        return view('video.upload');
     }
     public function save(Request $request){
         $this->validate($request, [
@@ -40,11 +40,11 @@ class VideoController extends Controller
     }
     public function index(){
         $videos = App\Video::where('owner',Auth::id())->get();
-        return View::make('listvideos', array('videos'=>$videos));
+        return View::make('video.list', array('videos'=>$videos));
     }
     public function showVideo($id){
         $video = App\Video::find($id);
-        return view('showvideo',compact('video'));
+        return view('video.show',compact('video'));
     }
     public function editVideo(Request $request, App\Video $video){
         $this->validate($request, [

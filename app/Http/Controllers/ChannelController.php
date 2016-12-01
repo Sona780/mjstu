@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\View;
 class ChannelController extends Controller
 {
     public function create(){
-        return view('createchannels');
+        return view('channel.create');
     }
     public function save(Request $request){
         $this->validate($request, [
@@ -31,14 +31,14 @@ class ChannelController extends Controller
     }
     public function index(){
         $channels = App\Channel::where('admin',Auth::id())->get();
-        return View::make('listchannels', array('channels'=>$channels));
+        return View::make('channel.list', array('channels'=>$channels));
     }
     public function browse(){
         $channels = App\Channel::all();
-        return View::make('browsechannels', array('channels'=>$channels));
+        return View::make('channel.browse', array('channels'=>$channels));
     }
     public function showChannel(App\Channel $channel){
-        return view('showchannel',compact('channel'));
+        return view('channel.show',compact('channel'));
     }
     public function subscribeChannel(App\Channel $channel){
         Auth::user()->channels()->attach($channel);
