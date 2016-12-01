@@ -18,7 +18,7 @@
                         @endforeach
                     </ul>
                     @else
-                        You Haven't Uploaded Any Video Yet. <a href="{{URL::to('videos/upload')}}">Click Here</a> to Upload a New Video.
+                        You haven't uploaded any video yet. <a href="{{URL::to('videos/upload')}}">Click Here</a> to upload a new video.
                     @endif
 
                 </div>

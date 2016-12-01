@@ -14,7 +14,7 @@
                 <div class="panel-body">
 
                     @if($channel->admin == Auth::id())
-                        Upload Video to Channel Part
+                        <a href="/videos/upload"><button class="btn btn-primary">Upload a Video to this Channel</button></a>
                     @elseif(Auth::user()->channels()->find($channel->id))
                         <form method="POST" action="/channels/unsubscribe/{{ $channel->id }}">
                             {{ csrf_field() }}
@@ -36,7 +36,7 @@
                         @endforeach
                     </ul>
                     @else
-                        You Haven't Uploaded Any Video to this Channel.
+                        You haven't uploaded any video to this channel.
                     @endif
 
                 </div>

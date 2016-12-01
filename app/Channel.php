@@ -12,4 +12,7 @@ class Channel extends Model
     public function videos(){
         return $this->hasMany('App\Video','channel');
     }
+    public function users(){
+        return $this->belongsToMany('App\User','subscriptions');
+    }
 }
