@@ -16,6 +16,11 @@ class VideoController extends Controller
         return view('upload');
     }
     public function save(Request $request){
+        $this->validate($request, [
+            'title' => 'bail|required|max:255',
+            'description' => 'required',
+            'file' => 'file|required',
+        ]);
         $video = new App\Video();
         $video->title = $request['title'];
         $video->description = $request['description'];
@@ -42,6 +47,10 @@ class VideoController extends Controller
         return view('showvideo',compact('video'));
     }
     public function editVideo(Request $request, App\Video $video){
+        $this->validate($request, [
+            'title' => 'bail|required|max:255',
+            'description' => 'required',
+        ]);
         $video->update($request->all());
         return redirect('/videos/index/'.$video->id);
     }

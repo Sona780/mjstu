@@ -18,6 +18,10 @@ class ChannelController extends Controller
         return view('createchannels');
     }
     public function save(Request $request){
+        $this->validate($request, [
+            'name' => 'bail|required|unique:channels|max:255',
+            'description' => 'required',
+        ]);
         $channel = new App\Channel();
         $channel->name = $request['name'];
         $channel->description = $request['description'];

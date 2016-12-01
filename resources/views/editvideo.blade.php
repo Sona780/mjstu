@@ -13,6 +13,15 @@
                 <div class="panel-body">
                     <ul>
                         <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="<?php echo('/videos/edit/update/'.$video->id) ?>">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
 
